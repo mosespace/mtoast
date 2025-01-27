@@ -1,6 +1,6 @@
 {
   "name": "@mosespace/toast",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Beautiful toast notifications for React applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
