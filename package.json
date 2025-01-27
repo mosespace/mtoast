@@ -1,0 +1,49 @@
+{
+  "name": "@mosespace/toast",
+  "version": "2.0.1",
+  "description": "Beautiful toast notifications for React applications",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosespace/mtoast.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "toast",
+    "notification",
+    "alert",
+    "dark-mode",
+    "animations",
+    "sonner"
+  ],
+  "author": "Kisakye Moses",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mosespace/mtoast/issues"
+  },
+  "homepage": "https://github.com/mosespace/mtoast#readme",
+  "peerDependencies": {
+    "framer-motion": "^10.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.0.0",
+    "lucide-react": "^0.294.0",
+    "tailwind-merge": "^2.1.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.0"
+  }
+}
