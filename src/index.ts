@@ -1,4 +1,4 @@
-import './input.css'; // Import the compiled CSS
+import './styles.css';
 
 export { Toaster } from './components/toaster';
 export { toast } from './toast';

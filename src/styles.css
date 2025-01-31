@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .toast-wrapper {
+    @apply fixed z-50 m-4 flex flex-col;
+  }
+
+  .toast-base {
+    @apply flex items-start max-w-md w-full p-4 rounded-lg border shadow-sm backdrop-blur-sm relative;
+  }
+
+  .toast-success {
+    @apply bg-gradient-to-r from-emerald-50 to-white dark:bg-gradient-to-r dark:from-emerald-500/10 dark:to-emerald-500/[0.02] border-emerald-100/60 dark:border-emerald-500/20;
+  }
+
+  /* Add similar classes for other variants */
+}
+
+/* Add custom styles if needed */
