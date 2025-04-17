@@ -1,55 +1,19 @@
 {
-  "name": "@mosespace/toast",
+  "name": "mtoast",
   "version": "3.0.13",
-  "description": "Beautiful toast notifications for React applications",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mosespace/mtoast.git"
-  },
+  "description":"Beautiful toast notifications for React applications",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "prepublishOnly": "npm run build"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "react",
-    "toast",
-    "notification",
-    "alert",
-    "dark-mode",
-    "animations",
-    "sonner"
-  ],
-  "author": "Kisakye Moses",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mosespace/mtoast/issues"
-  },
-  "homepage": "https://github.com/mosespace/mtoast#readme",
-  "peerDependencies": {
-    "framer-motion": ">=10.0.0",
-    "react": "^18.0.0 || ^19.0.0 || ^19.0.0-rc",
-    "react-dom": "^18.0.0 || ^19.0.0 || ^19.0.0-rc"
-  },
-  "dependencies": {
-    "clsx": ">=2.0.0",
-    "framer-motion": ">=10.0.0",
-    "lucide-react": ">=0.294.0",
-    "tailwind-merge": ">=2.1.0",
-    "zustand": ">=4.4.7"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
   },
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.1",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.0"
+    "turbo": "latest"
   }
 }
