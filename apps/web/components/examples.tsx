@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { toast, Toaster } from '@mosespace/toast';
+import { toast } from '@mosespace/toast';
 import {
   AlertCircle,
   Bell,
@@ -9,7 +9,6 @@ import {
   Laugh,
   XCircle,
 } from 'lucide-react';
-import Position from './positions';
 
 const examples = [
   {

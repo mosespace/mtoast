@@ -6,8 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "check-types": "tsc --noEmit",
     "lint": "next lint",
-    "check-types": "tsc --noEmit"
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@mosespace/toast": "*",

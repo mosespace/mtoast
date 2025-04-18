@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
