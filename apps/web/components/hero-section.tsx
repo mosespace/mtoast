@@ -39,7 +39,7 @@ export default function Hero() {
             >
               Beautiful toast notifications for{' '}
               <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                React
+                React.
               </span>
             </h1>
             <p className="mb-10 max-w-prose text-lg text-muted-foreground md:text-xl">
