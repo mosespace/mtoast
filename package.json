@@ -1,8 +1,9 @@
 {
   "name": "mtoast",
   "version": "3.0.13",
-  "description":"Beautiful toast notifications for React applications",
+  "description": "Beautiful toast notifications for React applications",
   "private": true,
+  "packageManager": "npm@8.5.0",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -14,6 +15,6 @@
     "test": "turbo run test"
   },
   "devDependencies": {
-    "turbo": "latest"
+    "turbo": "^2.5.0"
   }
 }
