@@ -10,3 +10,4 @@ npm run dev
 
 If you only want to run the NextJS app through Turborepo:
 npx turbo run dev --filter=web
+
