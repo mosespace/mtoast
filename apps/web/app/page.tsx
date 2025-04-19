@@ -3,6 +3,7 @@ import Hero from '@/components/hero-section';
 import Installation from '@/components/installation';
 import Examples from '@/components/examples';
 import Footer from '@/components/footer';
+import { CtaSection } from '@/components/cta-section';
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <Usage />
 
       <Examples />
+
+      <CtaSection />
 
       <Footer />
     </main>
