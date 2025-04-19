@@ -8,11 +8,10 @@ import { Young_Serif } from 'next/font/google';
 import Link from 'next/link';
 import { useState } from 'react';
 
-
 const myFont = Young_Serif({
   weight: '400',
   subsets: ['latin'],
-})
+});
 
 export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
@@ -41,7 +40,6 @@ export default function Hero() {
             </div>
             <h1
               className={`${myFont.className} mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl`}
-              // myFont.className
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
