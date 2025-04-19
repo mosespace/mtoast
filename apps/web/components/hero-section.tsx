@@ -4,8 +4,15 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { toast } from '@mosespace/toast';
 import { Github, Star } from 'lucide-react';
+import { Young_Serif } from 'next/font/google';
 import Link from 'next/link';
 import { useState } from 'react';
+
+
+const myFont = Young_Serif({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
@@ -33,7 +40,8 @@ export default function Hero() {
               Introducing @mosespace/toast v3.0
             </div>
             <h1
-              className="mb-6 text-4xl hero-text font-bold tracking-tight sm:text-5xl md:text-6xl"
+              className={`${myFont.className} mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl`}
+              // myFont.className
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
