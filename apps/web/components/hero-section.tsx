@@ -36,7 +36,7 @@ export default function Hero() {
         <div className="container relative z-10 max-w-5xl">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <div className="mb-4 inline-block rounded-full bg-muted px-4 py-1.5 text-sm font-medium">
-              Introducing @mosespace/toast v3.0
+              Introducing @mosespace/toast v3.0.15
             </div>
             <h1
               className={`${myFont.className} mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl`}
