@@ -9,7 +9,7 @@
 @custom-variant dark (&:is(.dark *));
 
 .hero-text {
-  font-family: var(--hero-font) !important;
+  font-family: var(--app-font) !important;
 }
 
 @theme inline {
