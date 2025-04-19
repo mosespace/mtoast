@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { useState } from 'react';
-import { Github, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { toast, Toaster } from '@mosespace/toast';
+import { cn } from '@/lib/utils';
+import { toast } from '@mosespace/toast';
+import { Github, Star } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
@@ -70,8 +70,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      <Toaster position="bottom-right" />
     </>
   );
 }
