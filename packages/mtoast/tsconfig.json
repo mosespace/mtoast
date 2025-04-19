@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -14,6 +14,6 @@
     "skipLibCheck": true,
     "rootDir": "./src"
   },
-  "include": ["src"],
+  "include": ["src", "tsup.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

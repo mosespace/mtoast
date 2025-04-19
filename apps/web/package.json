@@ -20,6 +20,7 @@
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "styled-jsx": "^5.1.6",
     "tailwind-merge": "^3.2.0",
     "tw-animate-css": "^1.2.5"
   },

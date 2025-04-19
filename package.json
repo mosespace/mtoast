@@ -16,5 +16,9 @@
   },
   "devDependencies": {
     "turbo": "^2.5.0"
+  },
+  "dependencies": {
+    "next": "^15.3.1",
+    "styled-jsx": "^5.1.6"
   }
 }
