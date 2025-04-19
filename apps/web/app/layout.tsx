@@ -13,15 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-const ogImage = '/logo.svg'
+const ogImage = 'logo.svg';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mtoast.mosespace.com'),
   title: {
-    default:
-      'MTOAST | Beautiful toast notifications for React',
-    template:
-      '%s | Beautiful toast notifications for React',
+    default: 'MTOAST | Beautiful toast notifications for React',
+    template: '%s | Beautiful toast notifications for React',
   },
   description:
     'A lightweight, customizable, and accessible toast component that makes notifications in your React app delightful.',
@@ -36,12 +34,15 @@ export const metadata: Metadata = {
     'Sonner',
     'React Hot Toast',
     'react-hot-toast',
-    "toaster",
+    'toaster',
     'toast notifications',
     'shadcn toast',
-    'shadcn'
+    'shadcn',
   ],
-  authors: [{ name: 'MTOAST', url: 'https://www.mtoast.mosespace.com' }, { name: 'Kisakye Moses', url: 'https://www.mosespace.com' }],
+  authors: [
+    { name: 'MTOAST', url: 'https://www.mtoast.mosespace.com' },
+    { name: 'Kisakye Moses', url: 'https://www.mosespace.com' },
+  ],
   creator: 'Kisakye Moses | Beautiful toast notifications for React',
   publisher: 'Kisakye Moses | Beautiful toast notifications for React',
   openGraph: {
@@ -64,8 +65,7 @@ export const metadata: Metadata = {
     creator: '@mtoast',
     site: '@site',
     card: 'summary_large_image',
-    title:
-      'MTOAST | Beautiful toast notifications for React',
+    title: 'MTOAST | Beautiful toast notifications for React',
     description:
       'A lightweight, customizable, and accessible toast component that makes notifications in your React app delightful.',
   },
