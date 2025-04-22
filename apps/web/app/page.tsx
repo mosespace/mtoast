@@ -7,7 +7,7 @@ import { CtaSection } from '@/components/cta-section';
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col">
+    <main className="relative px-8 md:px-0 flex min-h-screen flex-col">
       <Hero />
 
       <Installation />
