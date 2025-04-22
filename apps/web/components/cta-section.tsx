@@ -7,7 +7,7 @@ import { toast } from '@mosespace/toast';
 
 export function CtaSection() {
   return (
-    <section className="py-20 px-8">
+    <section className="py-20 md:px-8">
       <div className="container max-w-5xl mx-auto">
         <div className="rounded-2xl bg-gradient-to-br from-amber-600/90 via-amber-600 to-orange-600/20 p-8 md:p-12 lg:p-16 text-primary-foreground">
           <div className="mx-auto max-w-3xl text-center">
