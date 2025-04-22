@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="flex gap-4">
             <Button variant="ghost" size="icon" asChild>
               <Link
-                href="https://github.com/@mosespace"
+                href="https://github.com/mosespace/mtoast"
                 target="_blank"
                 rel="noopener noreferrer"
               >
