@@ -1,13 +1,40 @@
-# Run only the NextJS app
+## Usage
 
-npm run dev --workspace=apps/web
+To start using the library, install it in your project:
 
-# Or run everything in dev mode through Turborepo
+```bash
+npm install @mosespace/toast@latest
+```
 
-npm run dev
+add the following to your tailwind.config.ts
 
-# Run with filtered workspaces
+```
+  content: [
+    ...
+    './node_modules/@mosespace/toast/**/*.{js,ts,jsx,tsx}', // Include this line
+  ],
+```
 
-If you only want to run the NextJS app through Turborepo:
-npx turbo run dev --filter=web
+Add `<Toaster />` to your app, it will be the place where all your toasts will be rendered.
+After that you can use `toast()` from anywhere in your app.
 
+```jsx
+import { Toaster, toast } from '@mosespace/toast';
+
+// ...
+
+function App() {
+  return (
+    <div>
+      <Toaster />
+      <button onClick={() => toast.success('My first toast')}>
+        Give me a toast
+      </button>
+    </div>
+  );
+}
+```
+
+## Documentation
+
+Find the full API reference in the [documentation](https://mtoats.mosespace.com#getting-started).
