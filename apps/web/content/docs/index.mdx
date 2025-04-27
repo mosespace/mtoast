@@ -1,0 +1,65 @@
+---
+title: Getting Started
+# description: Mtoast is an opinionated toast component for React. You can read more about why and how it was built [here](https://blog.mosespace/ui/building-a-toast-component).
+icon: HomeIcon
+full: true
+---
+
+Mtoast is an opinionated toast component for React. You can read more about why and how it was built [here](https://blog.mosespace/ui/building-a-toast-component).
+
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Step } from 'fumadocs-ui/components/steps';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { toast } from '@mosespace/toast';
+
+<Step>
+## Installation
+Install the component from your command line.
+
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>```pnpm i @mtoast/mosespace ```</Tab>
+  <Tab>```npm i @mtoast/mosespace ```</Tab>
+  <Tab>```yarn add @mtoast/mosespace ```</Tab>
+  <Tab>```bun add @mtoast/mosespace ```</Tab>
+</Tabs>
+
+### Add Toaster to your app
+
+It can be placed anywhere, even in server components such as `layout.tsx`.
+
+```tsx
+import { Toaster } from '@mtoast/mosespace';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+### Render a toast
+
+```tsx
+import { toast } from '@mtoast/mosespace';
+
+function MyToast() {
+  return (
+    <button
+      onClick={() => toast.success('Rendered!', 'This is a mtoast toast')}
+    >
+      Render my toast
+    </button>
+  );
+}
+```
+
+</Step>
