@@ -1,6 +1,6 @@
 {
   "name": "@mosespace/toast",
-  "version": "3.0.15",
+  "version": "3.0.17",
   "description": "Beautiful toast notifications for React applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/mosespace/mtoast.git"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup src/index.ts --dts",
     "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
     "lint": "eslint ."
@@ -34,6 +34,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mosespace/mtoast/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://mtoast.mosespace.com/",
   "peerDependencies": {

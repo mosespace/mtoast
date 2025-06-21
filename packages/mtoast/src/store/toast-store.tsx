@@ -9,7 +9,7 @@ export type ToastVariant =
 
 export interface Toast {
   id: string;
-  title: string;
+  title: string | null;
   message: string;
   variant: ToastVariant;
   duration?: number;

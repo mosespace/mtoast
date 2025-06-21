@@ -107,7 +107,9 @@ export function Toast({
     >
       <Icon className={cn('h-5 w-5 shrink-0 mt-0.5 mr-3', styles.icon)} />
       <div className="flex-grow">
-        <h3 className={cn('text-sm font-semibold', styles.text)}>{title}</h3>
+        {title && (
+          <h3 className={cn('text-sm font-semibold', styles.text)}>{title}</h3>
+        )}
         <p className={cn('text-sm mt-0.5 font-normal opacity-90', styles.text)}>
           {message}
         </p>

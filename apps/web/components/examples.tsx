@@ -14,8 +14,7 @@ const examples = [
   {
     name: 'Default',
     icon: <Bell className="h-5 w-5" />,
-    action: () =>
-      toast.discovery('Default Toast', 'This is a default toast notification'),
+    action: () => toast.discovery('This is a default toast notification'),
   },
   {
     name: 'Success',

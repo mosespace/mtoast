@@ -5,14 +5,14 @@ interface ToastOptions {
 }
 
 function createToast(
-  title: string,
+  title: string | null,
   message: string,
   variant: ToastVariant,
   options?: ToastOptions,
 ) {
   const { addToast } = useToastStore.getState();
   addToast({
-    title,
+    title: title ?? '',
     message,
     variant,
     duration: options?.duration ?? 5000,
