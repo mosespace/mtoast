@@ -1,5 +1,5 @@
 ---
-name: Bug report ✅
+name: Bug report ❌
 about: Report a bug or unexpected behavior in the project
 title: '[Bug] <Short description of the bug>'
 labels: bug
