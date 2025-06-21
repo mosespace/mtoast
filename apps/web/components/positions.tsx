@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button } from './ui/button';
 import { toast, Toaster } from '@mosespace/toast';
+import { useState } from 'react';
+import { Button } from './ui/button';
 
 interface IProps {
   position:
@@ -57,6 +57,7 @@ export default function Positions() {
     | 'bottom-center'
     | 'top-center'
   >('top-right');
+
   return (
     <div>
       <div className="mt-16 container max-w-4xl mx-auto">
