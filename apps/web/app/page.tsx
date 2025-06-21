@@ -16,7 +16,7 @@ export default function Home() {
 
       <Examples />
 
-      {/* working on nthis for now */}
+      {/* working on this for now */}
       {/* <Positions /> */}
 
       <CtaSection />
