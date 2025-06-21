@@ -1,6 +1,6 @@
 'use client';
-import { FileText } from 'lucide-react';
 import Link from 'next/link';
+import { SiMdnwebdocs } from 'react-icons/si';
 import { usePathname } from 'next/navigation';
 
 const DocsButton = () => {
@@ -14,7 +14,7 @@ const DocsButton = () => {
       prefetch={true}
       className="fixed bottom-[30px] left-[30px] z-30 flex justify-center items-center w-[60px] h-[60px] bg-amber-500 rounded-full"
     >
-      <FileText size={28} color="white" />
+      <SiMdnwebdocs size={28} color="white" />
       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500/70 opacity-75"></span>
     </Link>
   );
