@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from '@/components/ui/button';
 import { toast } from '@mosespace/toast';
 import {
@@ -8,6 +9,7 @@ import {
   Info,
   Laugh,
   Loader2,
+  Map,
   Sparkles,
   XCircle,
 } from 'lucide-react';
@@ -48,25 +50,26 @@ const examples = [
     // toast.information('Information', "Here's something you should know"),
   },
   {
-    name: 'With Action',
+    name: 'Simple Action',
+    icon: <Map className="h-5 w-5 text-teal-500" />,
+    action: () =>
+      toast.success('File uploaded', {
+        action: {
+          label: 'View',
+          onClick: () => console.log('View clicked'),
+        },
+      }),
+  },
+  {
+    name: 'Advanced Action',
     icon: <Sparkles className="h-5 w-5 text-purple-500" />,
     action: () =>
-      // Simple action
-      // toast.success('File uploaded', {
-      //   action: {
-      //     label: 'View',
-      //     onClick: () => console.log('View clicked'),
-      //   },
-      // }),
-
-      // // With title and action
       toast.information('New Feature', 'Check out our latest update', {
         action: {
           label: 'Learn More',
           onClick: () => window.open('/features'),
         },
       }),
-    // toast.action('Action Required', 'Click to undo the last action'),
   },
   {
     name: 'Loading',
@@ -126,36 +129,6 @@ export default function Examples() {
             </Button>
           ))}
         </div>
-
-        {/* <div className="mt-16">
-          <h3 className="mb-6 text-center text-2xl font-bold">Positions</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <Position
-              toastProp="success"
-              position="top-left"
-              toastTitle={`Position: Top left`}
-              toastMessage="Toast notifications can appear in different positions"
-            />
-            <Position
-              toastProp="information"
-              position="top-right"
-              toastTitle={`Position: Top left`}
-              toastMessage="Toast notifications can appear in different positions"
-            />
-            <Position
-              toastProp="warning"
-              position="bottom-left"
-              toastTitle={`Position: Top left`}
-              toastMessage="Toast notifications can appear in different positions"
-            />
-            <Position
-              toastProp="warning"
-              position="bottom-right"
-              toastTitle={`Position: Top left`}
-              toastMessage="Toast notifications can appear in different positions"
-            />
-          </div>
-        </div> */}
       </div>
     </section>
   );

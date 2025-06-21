@@ -4,6 +4,7 @@ import Installation from '@/components/installation';
 import Examples from '@/components/examples';
 import Footer from '@/components/footer';
 import { CtaSection } from '@/components/cta-section';
+import Positions from '@/components/positions';
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
       <Usage />
 
       <Examples />
+
+      <Positions />
 
       <CtaSection />
 

@@ -86,4 +86,8 @@ export const toast = {
   ) {
     createToast(titleOrMessage, messageOrOptions, 'loading', options);
   },
+  dismiss() {
+    const { clearToasts } = useToastStore.getState();
+    clearToasts();
+  },
 };

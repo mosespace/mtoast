@@ -1,10 +1,9 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Toaster } from '@mosespace/toast';
-import { Geist, Geist_Mono } from 'next/font/google';
+import DocsButton from '@/components/docs-button';
 import { Analytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
-import DocsButton from '@/components/docs-button';
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -94,7 +93,6 @@ export default function RootLayout({
       >
         <RootProvider>{children}</RootProvider>
         <DocsButton />
-        <Toaster position="bottom-right" />
         <Analytics />
       </body>
     </html>

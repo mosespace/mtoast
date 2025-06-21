@@ -88,8 +88,57 @@ const variantStyles = {
   },
 };
 
+// Animation variants based on position
+const getAnimationVariants = (position?: string) => {
+  const isBottom = position?.includes('bottom');
+  const isTop = position?.includes('top');
+  const isLeft = position?.includes('left');
+  const isRight = position?.includes('right');
+  const isCenter = position?.includes('center');
+
+  if (isBottom) {
+    return {
+      initial: { opacity: 0, y: 100, scale: 0.9 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+      exit: { opacity: 0, y: 100, scale: 0.9 },
+    };
+  }
+
+  if (isTop) {
+    return {
+      initial: { opacity: 0, y: -100, scale: 0.9 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+      exit: { opacity: 0, y: -100, scale: 0.9 },
+    };
+  }
+
+  if (isLeft) {
+    return {
+      initial: { opacity: 0, x: -100, scale: 0.9 },
+      animate: { opacity: 1, x: 0, scale: 1 },
+      exit: { opacity: 0, x: -100, scale: 0.9 },
+    };
+  }
+
+  if (isRight) {
+    return {
+      initial: { opacity: 0, x: 100, scale: 0.9 },
+      animate: { opacity: 1, x: 0, scale: 1 },
+      exit: { opacity: 0, x: 100, scale: 0.9 },
+    };
+  }
+
+  // Default (center or no position specified)
+  return {
+    initial: { opacity: 0, y: -50, scale: 0.9 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    exit: { opacity: 0, y: -50, scale: 0.9 },
+  };
+};
+
 interface ToastProps extends ToastType {
   onRemove: (id: string) => void;
+  position?: string; // Add position prop
 }
 
 export function Toast({
@@ -100,9 +149,11 @@ export function Toast({
   duration = 5000,
   action,
   onRemove,
+  position, // Add position prop
 }: ToastProps) {
   const Icon = variantStyles[variant].icon;
   const styles = variantStyles[variant].styles;
+  const animations = getAnimationVariants(position);
 
   useEffect(() => {
     if (duration) {
@@ -116,9 +167,9 @@ export function Toast({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, x: 100, scale: 0.9 }}
-      animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={{ opacity: 0, x: 100, scale: 0.9 }}
+      initial={animations.initial}
+      animate={animations.animate}
+      exit={animations.exit}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
       className={cn(
         'flex items-start w-full min-w-80 max-w-md p-4 rounded-lg border shadow-sm',
