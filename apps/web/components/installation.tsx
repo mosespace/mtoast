@@ -25,7 +25,7 @@ export default function Installation() {
           <TabsList className="mb-6 grid w-full grid-cols-3">
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
             <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="bun">bun</TabsTrigger>
           </TabsList>
 
           <TabsContent value="pnpm" className="relative">
@@ -70,18 +70,18 @@ export default function Installation() {
             </div>
           </TabsContent>
 
-          <TabsContent value="yarn" className="relative">
+          <TabsContent value="bun" className="relative">
             <div className="relative overflow-hidden rounded-lg bg-muted p-4 font-mono text-sm">
-              yarn add @mosespace/toast
+              bun add @mosespace/toast
               <Button
                 variant="ghost"
                 size="icon"
                 className="absolute right-2 top-2"
                 onClick={() =>
-                  copyToClipboard('yarn add @mosespace/toast', 'yarn')
+                  copyToClipboard('bun add @mosespace/toast', 'bun')
                 }
               >
-                {copied === 'yarn' ? (
+                {copied === 'bun' ? (
                   <Check className="h-4 w-4 text-green-500" />
                 ) : (
                   <Copy className="h-4 w-4" />

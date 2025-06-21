@@ -13,8 +13,6 @@ coverage
 out/
 build
 
-# Ignore build outputs
-dist/
 
 # misc
 .DS_Store

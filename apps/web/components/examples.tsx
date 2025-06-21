@@ -7,6 +7,8 @@ import {
   CheckCircle,
   Info,
   Laugh,
+  Loader2,
+  Sparkles,
   XCircle,
 } from 'lucide-react';
 
@@ -45,41 +47,50 @@ const examples = [
     action: () => {},
     // toast.information('Information', "Here's something you should know"),
   },
-  // {
-  //   name: 'With Action',
-  //   icon: <Sparkles className="h-5 w-5 text-purple-500" />,
-  //   action: () =>
-  //     toast({
-  //       title: 'New Feature',
-  //       description: 'Check out our latest update',
-  //       action: {
-  //         label: 'View',
-  //         onClick: () => console.log('Action clicked'),
-  //       },
-  //     }),
-  // },
-  // {
-  //   name: 'Loading',
-  //   icon: <Loader2 className="h-5 w-5 animate-spin" />,
-  //   action: () => {
-  //     const toastId = toast({
-  //       title: 'Loading...',
-  //       description: 'Please wait while we process your request',
-  //       variant: 'loading',
-  //       duration: Number.POSITIVE_INFINITY,
-  //     });
+  {
+    name: 'With Action',
+    icon: <Sparkles className="h-5 w-5 text-purple-500" />,
+    action: () =>
+      // Simple action
+      // toast.success('File uploaded', {
+      //   action: {
+      //     label: 'View',
+      //     onClick: () => console.log('View clicked'),
+      //   },
+      // }),
 
-  //     // Simulate loading
-  //     setTimeout(() => {
-  //       toast.update(toastId, {
-  //         title: 'Completed!',
-  //         description: 'Your request has been processed',
-  //         variant: 'success',
-  //         duration: 5000,
-  //       });
-  //     }, 3000);
-  //   },
-  // },
+      // // With title and action
+      toast.information('New Feature', 'Check out our latest update', {
+        action: {
+          label: 'Learn More',
+          onClick: () => window.open('/features'),
+        },
+      }),
+    // toast.action('Action Required', 'Click to undo the last action'),
+  },
+  {
+    name: 'Loading',
+    icon: <Loader2 className="h-5 w-5 animate-spin" />,
+    action: () => {
+      // const toastId = toast({
+      //   title: 'Loading...',
+      //   description: 'Please wait while we process your request',
+      //   variant: 'loading',
+      //   duration: Number.POSITIVE_INFINITY,
+      // });
+
+      // // Simulate loading
+      // setTimeout(() => {
+      //   toast.update(toastId, {
+      //     title: 'Completed!',
+      //     description: 'Your request has been processed',
+      //     variant: 'success',
+      //     duration: 5000,
+      //   });
+      // }, 3000);
+      toast.loading('Please wait', 'We are processing your request...');
+    },
+  },
   // {
   //   name: 'Custom Duration',
   //   icon: <Clock className="h-5 w-5" />,

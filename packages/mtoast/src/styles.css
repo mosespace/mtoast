@@ -8,7 +8,7 @@
   }
 
   .toast-base {
-    @apply flex items-start max-w-md w-full p-4 rounded-lg border shadow-sm backdrop-blur-sm relative;
+    @apply flex items-start max-w-lg w-full p-4 rounded-lg border shadow-sm backdrop-blur-sm relative;
   }
 
   .toast-success {

@@ -7,6 +7,8 @@ import {
   CheckCircle,
   HelpCircle,
   Info,
+  Loader2,
+  Zap,
   X,
 } from 'lucide-react';
 import { useEffect } from 'react';
@@ -64,6 +66,26 @@ const variantStyles = {
       icon: 'text-sky-500 dark:text-sky-400',
     },
   },
+  loading: {
+    icon: Loader2,
+    styles: {
+      wrapper:
+        'bg-gradient-to-r from-slate-50 to-white dark:bg-gradient-to-r dark:from-slate-500/10 dark:to-slate-500/[0.02]',
+      text: 'text-slate-700 dark:text-slate-400',
+      border: 'border-slate-100/60 dark:border-slate-500/20',
+      icon: 'text-slate-500 dark:text-slate-400',
+    },
+  },
+  action: {
+    icon: Zap,
+    styles: {
+      wrapper:
+        'bg-gradient-to-r from-violet-50 to-white dark:bg-gradient-to-r dark:from-violet-500/10 dark:to-violet-500/[0.02]',
+      text: 'text-violet-700 dark:text-violet-400',
+      border: 'border-violet-100/60 dark:border-violet-500/20',
+      icon: 'text-violet-500 dark:text-violet-400',
+    },
+  },
 };
 
 interface ToastProps extends ToastType {
@@ -76,6 +98,7 @@ export function Toast({
   message,
   variant = 'success',
   duration = 5000,
+  action,
   onRemove,
 }: ToastProps) {
   const Icon = variantStyles[variant].icon;
@@ -98,21 +121,47 @@ export function Toast({
       exit={{ opacity: 0, x: 100, scale: 0.9 }}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
       className={cn(
-        'flex items-start max-w-md w-full p-4 rounded-lg border shadow-sm',
+        'flex items-start w-full min-w-80 max-w-md p-4 rounded-lg border shadow-sm',
         'backdrop-blur-sm relative',
         styles.wrapper,
         styles.border,
       )}
       role="alert"
     >
-      <Icon className={cn('h-5 w-5 shrink-0 mt-0.5 mr-3', styles.icon)} />
+      <Icon
+        className={cn(
+          'h-5 w-5 shrink-0 mt-0.5 mr-3',
+          styles.icon,
+          variant === 'loading' && 'animate-spin',
+        )}
+      />
       <div className="flex-grow">
         {title && (
           <h3 className={cn('text-sm font-semibold', styles.text)}>{title}</h3>
         )}
-        <p className={cn('text-sm mt-0.5 font-normal opacity-90', styles.text)}>
-          {message}
-        </p>
+        <div className="inline-flex space-x-3">
+          <p
+            className={cn('text-sm mt-0.5 font-normal opacity-90', styles.text)}
+          >
+            {message}
+          </p>
+          {action && (
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={action.onClick}
+              className={cn(
+                'px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                'bg-white/80 dark:bg-black/20 border',
+                styles.border,
+                styles.text,
+                'hover:bg-white dark:hover:bg-black/30',
+              )}
+            >
+              {action.label}
+            </motion.button>
+          )}
+        </div>
       </div>
       <motion.button
         whileHover={{ scale: 1.1 }}

@@ -4,26 +4,44 @@ import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const codeExample = `import { Toaster, toast } from '@mosespace/toast'
+const codeExample = `
+// 1. Paste in this in your global.css if using tailwind v4 or paste it into your tailwind -
+//  conmfig if using tailwind v3 and below
+------------------------------------------------------------
 
-// 1. Add the Toaster component to your app-layout
-function AppLayout() {
-  return (
-    <>
-      {children}
-      <Toaster />
-    </>
-  )
-}
+              @source '../node_modules/@mosespace/toast*.{js,ts,jsx,tsx}';
 
-// 2. Use the toast function anywhere in your app
-function YourComponent() {
-  return (
-    <button onClick={() => toast('Hello World!')}>
-      Show Toast
-    </button>
-  )
-}`;
+              or add the following to your tailwind.config.ts
+              content: [
+              ...
+              './node_modules/@mosespace/toast/**/*.{js,ts,jsx,tsx}', // Include this line
+            ],
+
+// 2. Add the Toaster component to your app-layout
+              ------------------------------------------------------------
+              import { Toaster } from '@mosespace/toast'
+
+              function AppLayout() {
+                return (
+                  <>
+                    {children}
+                    <Toaster />
+                  </>
+                )
+              };
+
+// 3. Use the toast function anywhere in your app
+              ------------------------------------------------------------
+              import { toast } from '@mosespace/toast'
+
+              function YourComponent() {
+                return (
+                  <button onClick={() => toast.sucess('Hello World!')}>
+                    Show Toast
+                  </button>
+                )
+              };
+  `;
 
 export default function Usage() {
   const [copied, setCopied] = useState(false);
@@ -48,7 +66,7 @@ export default function Usage() {
               <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
-            <div className="text-xs text-muted-foreground">App.jsx</div>
+            <div className="text-xs text-muted-foreground">app.tsx</div>
             <Button
               variant="ghost"
               size="sm"
@@ -75,7 +93,7 @@ export default function Usage() {
 
         <div className="mt-8 text-center text-muted-foreground">
           <p>
-            Just two simple steps to add beautiful toast notifications to your
+            Just three simple steps to add beautiful toast notifications to your
             React app.
           </p>
         </div>

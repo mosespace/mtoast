@@ -5,14 +5,20 @@ export type ToastVariant =
   | 'error'
   | 'information'
   | 'warning'
-  | 'discovery';
+  | 'discovery'
+  | 'action'
+  | 'loading';
 
 export interface Toast {
   id: string;
-  title: string | null;
+  title?: string;
   message: string;
   variant: ToastVariant;
   duration?: number;
+  action?: {
+    label: string;
+    onClick: () => void;
+  };
 }
 
 interface ToastStore {

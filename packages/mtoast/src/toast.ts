@@ -1,38 +1,89 @@
 import { useToastStore, type ToastVariant } from './store/toast-store';
 
+interface ToastAction {
+  label: string;
+  onClick: () => void;
+}
+
 interface ToastOptions {
   duration?: number;
+  action?: ToastAction;
 }
 
 function createToast(
-  title: string | null,
-  message: string,
-  variant: ToastVariant,
+  titleOrMessage: string,
+  messageOrOptions?: string | ToastOptions,
+  variant?: ToastVariant,
   options?: ToastOptions,
 ) {
   const { addToast } = useToastStore.getState();
-  addToast({
-    title: title ?? '',
-    message,
-    variant,
-    duration: options?.duration ?? 5000,
-  });
+
+  // If second param is string, we have title + message
+  if (typeof messageOrOptions === 'string') {
+    addToast({
+      title: titleOrMessage,
+      message: messageOrOptions,
+      variant: variant!,
+      duration: options?.duration ?? 5000,
+      action: options?.action,
+    });
+  } else {
+    // Otherwise, first param is message only
+    addToast({
+      message: titleOrMessage,
+      variant: variant!,
+      duration: (messageOrOptions as ToastOptions)?.duration ?? 5000,
+      action: (messageOrOptions as ToastOptions)?.action,
+    });
+  }
 }
 
 export const toast = {
-  success(title: string, message: string, options?: ToastOptions) {
-    createToast(title, message, 'success', options);
+  success(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'success', options);
   },
-  error(title: string, message: string, options?: ToastOptions) {
-    createToast(title, message, 'error', options);
+
+  error(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'error', options);
   },
-  information(title: string, message: string, options?: ToastOptions) {
-    createToast(title, message, 'information', options);
+
+  information(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'information', options);
   },
-  warning(title: string, message: string, options?: ToastOptions) {
-    createToast(title, message, 'warning', options);
+
+  warning(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'warning', options);
   },
-  discovery(title: string, message: string, options?: ToastOptions) {
-    createToast(title, message, 'discovery', options);
+
+  discovery(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'discovery', options);
+  },
+
+  loading(
+    titleOrMessage: string,
+    messageOrOptions?: string | ToastOptions,
+    options?: ToastOptions,
+  ) {
+    createToast(titleOrMessage, messageOrOptions, 'loading', options);
   },
 };
