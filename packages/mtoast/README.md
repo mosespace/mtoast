@@ -26,7 +26,7 @@ Add `<Toaster />` to your app, it will be the place where all your toasts will b
 After that you can use `toast()` from anywhere in your app.
 
 ```tsx
-import { Toaster } from '@mosespace/toast';
+import { Toaster, toast } from '@mosespace/toast';
 
 // ...
 

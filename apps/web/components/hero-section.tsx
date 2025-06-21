@@ -25,7 +25,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative overflow-hidden max-w-full mx-auto py-24 md:py-32">
+      <section className="relative min-h-screen mx-auto overflow-hidden flex max-w-full items-center justify-center py-24 md:py-32">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div
           className={cn(
