@@ -44,10 +44,21 @@ const examples = [
       toast.information('Information', "Here's something you should know"),
   },
   {
-    name: 'Anything You Want',
+    name: 'Custom Toast',
     icon: <Laugh className="h-5 w-5 text-amber-500" />,
-    action: () => {},
-    // toast.information('Information', "Here's something you should know"),
+    action: () => 
+      toast.custom(
+        <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shadow-lg text-white">
+          <div className="flex-shrink-0">
+            <Sparkles className="h-6 w-6" />
+          </div>
+          <div>
+            <h3 className="font-semibold">Custom Toast!</h3>
+            <p className="text-sm opacity-90">This is a completely custom toast component with your own styling and layout!</p>
+          </div>
+        </div>,
+        { duration: 6000 }
+      ),
   },
   {
     name: 'Simple Action',
@@ -70,6 +81,35 @@ const examples = [
           onClick: () => window.open('/features'),
         },
       }),
+  },
+  {
+    name: 'Advanced Custom',
+    icon: <Sparkles className="h-5 w-5 text-indigo-500" />,
+    action: () =>
+      toast.custom(
+        <div className="flex items-start space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-w-md">
+          <div className="flex-shrink-0">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <CheckCircle className="h-5 w-5 text-white" />
+            </div>
+          </div>
+          <div className="flex-1">
+            <h3 className="font-semibold text-gray-900 dark:text-white">File Uploaded Successfully!</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+              Your document has been uploaded and is ready for processing.
+            </p>
+            <div className="mt-3 flex space-x-2">
+              <button className="px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-md hover:bg-blue-600 transition-colors">
+                View File
+              </button>
+              <button className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                Share
+              </button>
+            </div>
+          </div>
+        </div>,
+        { duration: 8000 }
+      ),
   },
   {
     name: 'Loading',
