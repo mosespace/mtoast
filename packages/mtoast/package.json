@@ -1,6 +1,6 @@
 {
   "name": "@mosespace/toast",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Beautiful toast notifications for React applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -47,9 +47,9 @@
   },
   "dependencies": {
     "clsx": ">=2.0.0",
-    "framer-motion": ">=10.0.0",
     "lucide-react": ">=0.294.0",
     "tailwind-merge": ">=2.1.0",
+    "user": "^0.0.0",
     "zustand": ">=4.4.7"
   },
   "devDependencies": {
