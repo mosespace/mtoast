@@ -48,7 +48,7 @@ const examples = [
     icon: <Laugh className="h-5 w-5 text-amber-500" />,
     action: () => 
       toast.custom(
-        <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shadow-lg text-white">
+        <div className="flex items-center space-x-3 p-4 bg-amber-500 rounded-lg shadow-lg text-white max-w-md">
           <div className="flex-shrink-0">
             <Sparkles className="h-6 w-6" />
           </div>
@@ -89,7 +89,7 @@ const examples = [
       toast.custom(
         <div className="flex items-start space-x-3 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 max-w-md">
           <div className="flex-shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
               <CheckCircle className="h-5 w-5 text-white" />
             </div>
           </div>
@@ -149,23 +149,27 @@ const examples = [
 export default function Examples() {
   return (
     <section className="py-20">
-      <div className="container max-w-4xl mx-auto">
-        <h2 className="mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+      <div className="container max-w-4xl mx-auto px-4">
+        <h2 className="mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent">
           Toast Examples
         </h2>
 
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {examples.map((example, index) => (
             <Button
               key={index}
               variant="outline"
-              className="flex h-auto flex-col gap-2 p-4"
+              className="group relative flex h-auto min-w-[180px] max-w-[280px] flex-col gap-3 p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-gray-200/50 bg-gradient-to-br from-white/80 via-gray-50/50 to-white/80 backdrop-blur-sm hover:from-white hover:via-gray-50 hover:to-white hover:border-gray-300/70 dark:from-gray-900/80 dark:via-gray-800/50 dark:to-gray-900/80 dark:border-gray-700/50 dark:hover:from-gray-900 dark:hover:via-gray-800 dark:hover:to-gray-900 dark:hover:border-gray-600/70"
               onClick={example.action}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gray-100 to-gray-200 shadow-sm group-hover:shadow-md transition-shadow duration-300 dark:from-gray-700 dark:to-gray-800">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent" />
                 {example.icon}
               </div>
-              <span>{example.name}</span>
+              <span className="relative font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-gray-100 transition-colors duration-300">
+                {example.name}
+              </span>
             </Button>
           ))}
         </div>
