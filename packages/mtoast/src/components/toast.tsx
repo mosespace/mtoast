@@ -150,9 +150,8 @@ export function Toast({
   action,
   onRemove,
   position, // Add position prop
+  customComponent,
 }: ToastProps) {
-  const Icon = variantStyles[variant].icon;
-  const styles = variantStyles[variant].styles;
   const animations = getAnimationVariants(position);
 
   useEffect(() => {
@@ -163,6 +162,35 @@ export function Toast({
       return () => clearTimeout(timer);
     }
   }, [duration, id, onRemove]);
+
+  // If it's a custom toast with a custom component, render it
+  if (variant === 'custom' && customComponent) {
+    return (
+      <motion.div
+        layout
+        initial={animations.initial}
+        animate={animations.animate}
+        exit={animations.exit}
+        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        className="relative"
+        role="alert"
+      >
+        {customComponent}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onRemove(id)}
+          className="absolute top-2 right-2 z-10 rounded-lg p-1 transition-colors duration-200 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-white/80 dark:hover:bg-black/20"
+          aria-label="Close notification"
+        >
+          <X className="h-4 w-4" />
+        </motion.button>
+      </motion.div>
+    );
+  }
+
+  const Icon = variantStyles[variant].icon;
+  const styles = variantStyles[variant].styles;
 
   return (
     <motion.div

@@ -30,6 +30,13 @@ function App() {
       <button onClick={() => toast.success('My first toast')}>
         Give me a toast
       </button>
+      <button onClick={() => toast.custom(
+        <div className="p-4 bg-purple-500 text-white rounded-lg">
+          Custom Toast!
+        </div>
+      )}>
+        Custom Toast
+      </button>
     </div>
   );
 }

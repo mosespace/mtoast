@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { ReactNode } from 'react';
 
 export type ToastVariant =
   | 'success'
@@ -7,7 +8,8 @@ export type ToastVariant =
   | 'warning'
   | 'discovery'
   | 'action'
-  | 'loading';
+  | 'loading'
+  | 'custom';
 
 export interface Toast {
   id: string;
@@ -19,6 +21,7 @@ export interface Toast {
     label: string;
     onClick: () => void;
   };
+  customComponent?: ReactNode;
 }
 
 interface ToastStore {

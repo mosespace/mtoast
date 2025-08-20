@@ -1,4 +1,5 @@
 import { useToastStore, type ToastVariant } from './store/toast-store';
+import { ReactNode } from 'react';
 
 interface ToastAction {
   label: string;
@@ -8,6 +9,10 @@ interface ToastAction {
 interface ToastOptions {
   duration?: number;
   action?: ToastAction;
+}
+
+interface CustomToastOptions extends ToastOptions {
+  customComponent?: ReactNode;
 }
 
 function createToast(
@@ -26,6 +31,7 @@ function createToast(
       variant: variant!,
       duration: options?.duration ?? 5000,
       action: options?.action,
+      customComponent: (options as CustomToastOptions)?.customComponent,
     });
   } else {
     // Otherwise, first param is message only
@@ -34,6 +40,7 @@ function createToast(
       variant: variant!,
       duration: (messageOrOptions as ToastOptions)?.duration ?? 5000,
       action: (messageOrOptions as ToastOptions)?.action,
+      customComponent: (messageOrOptions as CustomToastOptions)?.customComponent,
     });
   }
 }
@@ -85,6 +92,19 @@ export const toast = {
     options?: ToastOptions,
   ) {
     createToast(titleOrMessage, messageOrOptions, 'loading', options);
+  },
+  custom(
+    component: ReactNode,
+    options?: CustomToastOptions,
+  ) {
+    const { addToast } = useToastStore.getState();
+    addToast({
+      message: '', // Empty message since we're using custom component
+      variant: 'custom',
+      duration: options?.duration ?? 5000,
+      action: options?.action,
+      customComponent: component,
+    });
   },
   dismiss() {
     const { clearToasts } = useToastStore.getState();
