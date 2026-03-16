@@ -1,7 +1,9 @@
 'use client';
 
 import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import { useToastStore } from '../store/toast-store';
+import toastStyles from '../styles.css';
 import { Toast } from './toast';
 
 export interface ToasterProps {
@@ -16,27 +18,53 @@ export interface ToasterProps {
 }
 
 const positionStyles = {
-  'top-left': 'top-0 left-0',
-  'top-center': 'top-0 left-1/2 -translate-x-1/2',
-  'top-right': 'top-0 right-0',
-  'bottom-left': 'bottom-0 left-0',
-  'bottom-right': 'bottom-0 right-0',
-  'bottom-center': 'bottom-0 left-1/2 -translate-x-1/2',
+  'top-left': 'mtoast-position-top-left',
+  'top-center': 'mtoast-position-top-center',
+  'top-right': 'mtoast-position-top-right',
+  'bottom-left': 'mtoast-position-bottom-left',
+  'bottom-right': 'mtoast-position-bottom-right',
+  'bottom-center': 'mtoast-position-bottom-center',
 };
+
+const STYLE_ID = 'mtoast-styles';
+
+function injectStyles() {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  if (document.getElementById(STYLE_ID)) {
+    return;
+  }
+
+  const style = document.createElement('style');
+  style.id = STYLE_ID;
+  style.textContent = toastStyles;
+  document.head.appendChild(style);
+}
 
 export function Toaster({ position = 'bottom-right', gap = 8 }: ToasterProps) {
   const { toasts, removeToast } = useToastStore();
 
+  useEffect(() => {
+    injectStyles();
+  }, []);
+
   return (
     <div
-      className={`fixed z-50 m-4 flex flex-col ${positionStyles[position]}`}
+      className={`mtoast-container ${positionStyles[position]}`}
       style={{ gap: `${gap}px` }}
       role="region"
       aria-label="Notifications"
     >
       <AnimatePresence mode="sync">
         {toasts.map((toast) => (
-          <Toast key={toast.id} {...toast} onRemove={removeToast} />
+          <Toast
+            key={toast.id}
+            {...toast}
+            onRemove={removeToast}
+            position={position}
+          />
         ))}
       </AnimatePresence>
     </div>

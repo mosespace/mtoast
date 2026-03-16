@@ -9,14 +9,13 @@ export default defineConfig({
   dts: true,
   format: ['esm', 'cjs'],
   clean: true,
-  injectStyle: true,
   esbuildOptions(options) {
     options.banner = {
       js: '"use client";',
     };
   },
   loader: {
-    '.css': 'copy',
+    '.css': 'text',
   },
   outDir: 'dist',
 });
