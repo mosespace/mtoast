@@ -6,8 +6,6 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
-@source '../../../node_modules/@mosespace/toast/dist';
-
 @custom-variant dark (&:is(.dark *));
 
 .hero-text {

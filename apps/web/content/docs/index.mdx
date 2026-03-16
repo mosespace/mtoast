@@ -9,26 +9,26 @@ Mtoast is an opinionated toast component for React. You can read more about why 
 
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Step } from 'fumadocs-ui/components/steps';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { toast } from '@mosespace/toast';
 
 <Step>
 ## Installation
-Install the component from your command line.
+Install the package from your command line.
 
 <Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
-  <Tab>```pnpm i @mtoast/mosespace ```</Tab>
-  <Tab>```npm i @mtoast/mosespace ```</Tab>
-  <Tab>```yarn add @mtoast/mosespace ```</Tab>
-  <Tab>```bun add @mtoast/mosespace ```</Tab>
+  <Tab>```pnpm add @mosespace/toast```</Tab>
+  <Tab>```npm install @mosespace/toast```</Tab>
+  <Tab>```yarn add @mosespace/toast```</Tab>
+  <Tab>```bun add @mosespace/toast```</Tab>
 </Tabs>
+
+No Tailwind setup is required. Styles are bundled inside the package and injected automatically when `Toaster` renders.
 
 ### Add Toaster to your app
 
 It can be placed anywhere, even in server components such as `layout.tsx`.
 
 ```tsx
-import { Toaster } from '@mtoast/mosespace';
+import { Toaster } from '@mosespace/toast';
 
 export default function RootLayout({
   children,
@@ -39,22 +39,24 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Toaster />
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );
 }
 ```
 
-### Render a toast
+### Simple Usage
 
 ```tsx
-import { toast } from '@mtoast/mosespace';
+import { toast } from '@mosespace/toast';
 
 function MyToast() {
   return (
     <button
-      onClick={() => toast.success('Rendered!', 'This is a mtoast toast')}
+      onClick={() =>
+        toast.success('Rendered!', 'This is a smooth mtoast notification.')
+      }
     >
       Render my toast
     </button>
